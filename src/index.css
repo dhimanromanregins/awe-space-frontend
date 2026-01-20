@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AweSpace Design System
+   A private family-office desk aesthetic: calm, discreet, deeply considered
+   Colors: Warm neutrals — sand, stone, off-white, charcoal
+   Typography: Editorial serif for headlines + modern restrained sans for body
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Core palette - warm neutrals */
+    --background: 40 20% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 40 15% 96%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 40 20% 98%;
+    --popover-foreground: 30 10% 15%;
+
+    /* Primary - warm charcoal */
+    --primary: 30 8% 20%;
+    --primary-foreground: 40 20% 98%;
+
+    /* Secondary - stone */
+    --secondary: 35 12% 88%;
+    --secondary-foreground: 30 10% 15%;
+
+    /* Muted - soft sand */
+    --muted: 38 18% 93%;
+    --muted-foreground: 30 8% 45%;
+
+    /* Accent - warm sand highlight */
+    --accent: 35 25% 85%;
+    --accent-foreground: 30 10% 15%;
+
+    /* Destructive */
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 40 20% 98%;
+
+    /* Borders & inputs */
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 30 8% 30%;
+
+    --radius: 0.375rem;
+
+    /* Extended palette */
+    --sand: 38 30% 90%;
+    --sand-dark: 35 20% 82%;
+    --stone: 35 12% 75%;
+    --stone-dark: 32 10% 55%;
+    --charcoal: 30 8% 20%;
+    --charcoal-light: 30 6% 35%;
+    --cream: 42 35% 96%;
+    --warm-white: 40 25% 99%;
+
+    /* Sidebar */
+    --sidebar-background: 40 15% 96%;
+    --sidebar-foreground: 30 10% 25%;
+    --sidebar-primary: 30 8% 20%;
+    --sidebar-primary-foreground: 40 20% 98%;
+    --sidebar-accent: 35 18% 90%;
+    --sidebar-accent-foreground: 30 10% 20%;
+    --sidebar-border: 35 15% 88%;
+    --sidebar-ring: 30 8% 30%;
+  }
+
+  .dark {
+    --background: 30 12% 8%;
+    --foreground: 38 20% 92%;
+
+    --card: 30 10% 12%;
+    --card-foreground: 38 20% 92%;
+
+    --popover: 30 10% 10%;
+    --popover-foreground: 38 20% 92%;
+
+    --primary: 38 20% 92%;
+    --primary-foreground: 30 12% 8%;
+
+    --secondary: 30 8% 18%;
+    --secondary-foreground: 38 20% 92%;
+
+    --muted: 30 8% 18%;
+    --muted-foreground: 35 12% 60%;
+
+    --accent: 32 10% 22%;
+    --accent-foreground: 38 20% 92%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 38 20% 92%;
+
+    --border: 30 8% 20%;
+    --input: 30 8% 20%;
+    --ring: 38 15% 75%;
+
+    --sand: 35 15% 25%;
+    --sand-dark: 32 12% 20%;
+    --stone: 30 8% 35%;
+    --stone-dark: 28 6% 28%;
+    --charcoal: 38 20% 92%;
+    --charcoal-light: 35 15% 75%;
+    --cream: 30 10% 12%;
+    --warm-white: 30 12% 10%;
+
+    --sidebar-background: 30 10% 10%;
+    --sidebar-foreground: 38 18% 85%;
+    --sidebar-primary: 38 20% 92%;
+    --sidebar-primary-foreground: 30 12% 8%;
+    --sidebar-accent: 30 8% 16%;
+    --sidebar-accent-foreground: 38 18% 85%;
+    --sidebar-border: 30 8% 18%;
+    --sidebar-ring: 38 15% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
