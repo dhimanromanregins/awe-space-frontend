@@ -75,7 +75,7 @@ const ScheduleStep = ({ onNext, updateIntent }: ScheduleStepProps) => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch('http://192.168.1.3:8002/api/auth/customers/', {
+        const response = await fetch('http://13.51.48.185:8002/api/auth/customers/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
