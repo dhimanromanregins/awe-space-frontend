@@ -7,6 +7,8 @@ import { UserProvider } from "./contexts/UserContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Landing from "./pages/Landing";
 import HowItWorks from "./pages/HowItWorks";
+import Login from "./pages/Login";
+import WaitingState from "./pages/WaitingState";
 import Intake from "./pages/Intake";
 import Confirmation from "./pages/Confirmation";
 import Welcome from "./pages/Welcome";
@@ -35,6 +37,15 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/login" element={<Login />} />
+            <Route 
+              path="/waiting-state" 
+              element={
+                <ProtectedRoute>
+                  <WaitingState />
+                </ProtectedRoute>
+              } 
+            />
             <Route path="/intake" element={<Intake />} />
             <Route 
               path="/confirmation" 

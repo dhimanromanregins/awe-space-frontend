@@ -12,11 +12,16 @@ const ProtectedRoute = ({
   requireCompletedIntake = false, 
   requireCompletedConsultation = false 
 }: ProtectedRouteProps) => {
-  const { hasCompletedIntake, hasCompletedConsultation } = useUser();
+  const { isAuthenticated, hasCompletedIntake, hasCompletedConsultation } = useUser();
+
+  // Check if user is authenticated
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
 
   // Check if consultation is required but not completed
   if (requireCompletedConsultation && !hasCompletedConsultation) {
-    return <Navigate to="/intake" replace />;
+    return <Navigate to="/waiting-state" replace />;
   }
 
   // Check if intake is required but not completed

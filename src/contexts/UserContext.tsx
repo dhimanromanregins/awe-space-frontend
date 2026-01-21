@@ -16,6 +16,10 @@ export interface UserIntent {
 interface UserContextType {
   isAuthenticated: boolean;
   setIsAuthenticated: (value: boolean) => void;
+  userName: string;
+  userEmail: string;
+  login: (name: string, email: string) => void;
+  logout: () => void;
   hasCompletedIntake: boolean;
   setHasCompletedIntake: (value: boolean) => void;
   hasCompletedConsultation: boolean;
@@ -29,9 +33,26 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
   const [hasCompletedIntake, setHasCompletedIntake] = useState(false);
   const [hasCompletedConsultation, setHasCompletedConsultation] = useState(false);
   const [userIntent, setUserIntent] = useState<UserIntent>({});
+
+  const login = (name: string, email: string) => {
+    setUserName(name);
+    setUserEmail(email);
+    setIsAuthenticated(true);
+  };
+
+  const logout = () => {
+    setUserName('');
+    setUserEmail('');
+    setIsAuthenticated(false);
+    setHasCompletedIntake(false);
+    setHasCompletedConsultation(false);
+    setUserIntent({});
+  };
 
   const updateUserIntent = (updates: Partial<UserIntent>) => {
     setUserIntent(prev => ({ ...prev, ...updates }));
@@ -42,6 +63,10 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       value={{
         isAuthenticated,
         setIsAuthenticated,
+        userName,
+        userEmail,
+        login,
+        logout,
         hasCompletedIntake,
         setHasCompletedIntake,
         hasCompletedConsultation,
